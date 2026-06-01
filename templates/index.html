@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>موزیک پلیر</title>
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>🎵 موزیک پلیر</h1>
+    </header>
+
+    <!-- آپلود -->
+    <section class="upload-section">
+      <h2>آپلود آهنگ جدید</h2>
+      <form id="uploadForm">
+        <div class="form-row">
+          <input type="text" id="title" placeholder="نام آهنگ" required />
+          <input type="text" id="artist" placeholder="نام خواننده" required />
+        </div>
+        <div class="form-row">
+          <label class="file-label">
+            <input type="file" id="audioFile" accept=".mp3" required />
+            <span id="fileLabel">انتخاب فایل MP3</span>
+          </label>
+          <button type="submit" id="uploadBtn">آپلود</button>
+        </div>
+        <p id="uploadMsg" class="msg"></p>
+      </form>
+    </section>
+
+    <!-- پلیر -->
+    <section class="player-section" id="playerSection" style="display:none">
+      <div class="player-card">
+        <div class="player-info">
+          <p class="player-title" id="playerTitle">—</p>
+          <p class="player-artist" id="playerArtist">—</p>
+        </div>
+        <audio id="audioPlayer" controls></audio>
+      </div>
+    </section>
+
+    <!-- لیست آهنگ‌ها -->
+    <section class="songs-section">
+      <h2>آهنگ‌ها</h2>
+      <div id="songList" class="song-list">
+        <p class="empty">در حال بارگذاری...</p>
+      </div>
+    </section>
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
