@@ -104,8 +104,32 @@
     </div>
   </div>
 
+  <!-- Mobile Bottom Nav -->
+  <nav class="mobile-nav">
+    <a href="#" class="mobile-nav-item active" data-section="home">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+      <span>خانه</span>
+    </a>
+    <a href="#" class="mobile-nav-item" data-section="search">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg>
+      <span>جستجو</span>
+    </a>
+    <a href="#" class="mobile-nav-item" data-section="library">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M4 6H2v14c0 1.1.9 2 2 2h14v-2H4V6zm16-4H8c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2zm-1 9H9V9h10v2zm-4 4H9v-2h6v2zm4-8H9V5h10v2z"/></svg>
+      <span>کتابخانه</span>
+    </a>
+    <a href="#" class="mobile-nav-item" id="mobileUploadTrigger">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="22" height="22"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+      <span>آپلود</span>
+    </a>
+  </nav>
+
   <!-- Bottom Player -->
   <div class="player-bar" id="playerBar">
+    <!-- mobile mini progress (top of player bar) -->
+    <div class="mini-progress" id="miniProgress">
+      <div class="mini-progress-fill" id="miniProgressFill"></div>
+    </div>
     <div class="player-song-info">
       <div class="player-cover" id="playerCover">
         <svg viewBox="0 0 24 24" fill="currentColor" width="24" height="24"><path d="M12 3v10.55c-.59-.34-1.27-.55-2-.55-2.21 0-4 1.79-4 4s1.79 4 4 4 4-1.79 4-4V7h4V3h-6z"/></svg>

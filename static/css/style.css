@@ -561,3 +561,141 @@ input[type="range"]::-webkit-slider-thumb {
 ::-webkit-scrollbar { width: 6px; }
 ::-webkit-scrollbar-track { background: transparent; }
 ::-webkit-scrollbar-thumb { background: var(--surface2); border-radius: 3px; }
+
+/* ─── Mobile mini progress ─────────────────────────────── */
+.mini-progress {
+  display: none;
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 3px;
+  background: var(--surface2);
+}
+.mini-progress-fill {
+  height: 100%;
+  background: var(--accent);
+  width: 0%;
+  transition: width .5s linear;
+}
+
+/* ─── Mobile Nav (hidden on desktop) ──────────────────── */
+.mobile-nav { display: none; }
+
+/* ─── Mobile ───────────────────────────────────────────── */
+@media (max-width: 640px) {
+  :root {
+    --player-h: 64px;
+    --bottom-nav-h: 60px;
+  }
+
+  body {
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr var(--player-h) var(--bottom-nav-h);
+    grid-template-areas:
+      "main"
+      "player"
+      "nav";
+  }
+
+  /* hide desktop sidebar */
+  .sidebar { display: none; }
+
+  /* main fills full width */
+  .main { background: linear-gradient(180deg, #1a3a2a 0%, var(--bg) 30%); }
+
+  /* topbar: smaller, آپلود hidden (moved to nav) */
+  .topbar { padding: 0.75rem 1rem; }
+  .topbar-btn { display: none; }
+
+  /* content padding */
+  .content-section { padding: 0 1rem 1rem; }
+
+  /* grid: 2 cols */
+  .songs-grid { grid-template-columns: repeat(2, 1fr); gap: 0.75rem; }
+
+  .section-title { font-size: 1.1rem; }
+
+  /* track list: bigger touch targets */
+  .track-item { padding: 0.7rem 0.5rem; }
+  .track-del { display: block; opacity: 0.5; }
+
+  /* mini progress visible on mobile */
+  .mini-progress { display: block; }
+  .player-bar { position: relative; }
+
+  /* player bar: compact single row */
+  .player-bar {
+    grid-template-columns: 1fr auto auto;
+    grid-template-rows: 1fr;
+    padding: 0 1rem;
+    gap: 0.75rem;
+    align-items: center;
+    grid-area: player;
+  }
+
+  /* hide progress & volume on mobile player — tap to expand later */
+  .player-progress-wrap { display: none; }
+  .player-volume        { display: none; }
+
+  /* controls inline */
+  .player-controls {
+    flex-direction: row;
+    gap: 0.5rem;
+  }
+  .player-controls > div { gap: 0.5rem; }
+
+  /* song info compact */
+  .player-song-info { gap: 0.6rem; min-width: 0; overflow: hidden; }
+  .player-cover { width: 40px; height: 40px; }
+  .player-title { font-size: 0.8rem; }
+  .player-artist { font-size: 0.7rem; }
+
+  /* bottom nav */
+  .mobile-nav {
+    display: flex;
+    grid-area: nav;
+    background: #000;
+    border-top: 1px solid var(--border);
+    justify-content: space-around;
+    align-items: center;
+    height: var(--bottom-nav-h);
+    padding: 0 0.5rem;
+  }
+
+  .mobile-nav-item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.2rem;
+    color: var(--text3);
+    text-decoration: none;
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0.4rem 0.8rem;
+    border-radius: 8px;
+    transition: color .15s;
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mobile-nav-item.active { color: var(--text); }
+  .mobile-nav-item:active { background: var(--surface2); }
+
+  /* modal full screen on mobile */
+  .modal {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+
+  /* search bar full width */
+  .search-bar { max-width: 100%; }
+}
+
+/* ─── Tablet ───────────────────────────────────────────── */
+@media (min-width: 641px) and (max-width: 900px) {
+  :root { --sidebar-w: 180px; }
+  .songs-grid { grid-template-columns: repeat(3, 1fr); }
+  .sidebar-logo span { font-size: 1rem; }
+  .player-volume input[type="range"] { width: 60px; }
+}
